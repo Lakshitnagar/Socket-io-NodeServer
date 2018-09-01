@@ -11,9 +11,11 @@ for(let c=1; c<=appConfig.NUMBER_OF_CLIENTS; c++){
             console.log('user disconnected');
         });
     
-        for(var i=0; i<appConfig.NUMBER_OF_TAG_2; i++) {
-            for(var j=0; j<appConfig.NUMBER_OF_TAG_3; j++){
-                emitEventOnSocketNameSpace(socket, 'client_'+c, {'tag2':'A'+i, 'tag3':'B'+j});
+        for(let i=0; i<appConfig.NUMBER_OF_TAG_2; i++) {
+            for(let j=0; j<appConfig.NUMBER_OF_TAG_3; j++){
+                setTimeout(()=>{
+                    emitEventOnSocketNameSpace(socket, 'client_'+c, {'tag2':'A'+i, 'tag3':'B'+j});
+                }, (Math.random())*1000);
             }
         }
     });
