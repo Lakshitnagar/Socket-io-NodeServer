@@ -14,7 +14,13 @@ for(let c=1; c<=appConfig.NUMBER_OF_CLIENTS; c++){
         for(let i=0; i<appConfig.NUMBER_OF_TAG_2; i++) {
             for(let j=0; j<appConfig.NUMBER_OF_TAG_3; j++){
                 setTimeout(()=>{
-                    emitEventOnSocketNameSpace(socket, appConstant.EVENT_PREFIX + c + appConstant.EVENT_SUFFIX, {'tag2':'A'+i, 'tag3':'B'+j});
+                    emitEventOnSocketNameSpace(socket, appConstant.EVENT_PREFIX + c + appConstant.EVENT_SUFFIX, {
+                        'tag1': c,
+                        'tag2': 'A' + i,
+                        'tag3': 'B' + j,
+                        'metric1': Math.random() * 100,
+                        'metric1': Math.random() * 100
+                    });
                 }, (Math.random())*70000);
             }
         }
